@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+<div class="terminal-prompt">
+  <span class="prompt-user">root@devblog</span>:<span class="prompt-path">~/posts</span>$ <span class="prompt-command">cat {{ page.title | slugify }}.md</span>
+</div>
+
+<article class="command-output post-content">
+  <header class="post-header">
+    <h1>{{ page.title | escape }}</h1>
+    <div class="post-meta">
+      <span class="meta-date">[{{ page.date | date: "%Y-%m-%d %H:%M:%S" }}]</span>
+      {% if page.categories %}
+      <span class="meta-categories">
+        {% for category in page.categories %}
+        <span class="category">{{ category }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+      {% if page.tags %}
+      <span class="meta-tags">
+        {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>
+
+<div class="terminal-prompt">
+  <span class="prompt-user">root@devblog</span>:<span class="prompt-path">~/posts</span>$ <span class="prompt-command">cd ..</span>
+</div>
+
+<div class="terminal-prompt">
+  <span class="prompt-user">root@devblog</span>:<span class="prompt-path">~</span>$ <a href="{{ "/" | relative_url }}" class="prompt-command">[BACK_TO_HOME]</a>
+</div>
+
+<div class="terminal-prompt">
+  <span class="prompt-user">root@devblog</span>:<span class="prompt-path">~</span>$ <span class="prompt-command cursor-blink">_</span>
+</div>

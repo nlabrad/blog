@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+  <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+</head>
+<body>
+  <div class="terminal-container">
+    <header class="terminal-header">
+      <div class="terminal-title-bar">
+        <span class="terminal-buttons">
+          <span class="btn-close">●</span>
+          <span class="btn-minimize">●</span>
+          <span class="btn-maximize">●</span>
+        </span>
+        <span class="terminal-title">{{ site.title | escape }}</span>
+      </div>
+      <nav class="terminal-nav">
+        <a href="{{ "/" | relative_url }}">~/home</a>
+        <a href="{{ "/about/" | relative_url }}">~/about</a>
+        <a href="{{ "/feed.xml" | relative_url }}">~/rss</a>
+      </nav>
+    </header>
+
+    <main class="terminal-content">
+      {{ content }}
+    </main>
+
+    <footer class="terminal-footer">
+      <p>{{ site.description | escape }}</p>
+      <p>&copy; 2025 {{ site.title | escape }} | Powered by Jekyll | Theme: RetroTerminal</p>
+    </footer>
+  </div>
+</body>
+</html>

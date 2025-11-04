@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<div class="terminal-prompt">
+  <span class="prompt-user">n@nicolab</span>:<span class="prompt-path">~</span>$ <span class="prompt-command">cat welcome.txt</span>
+</div>
+
+<div class="command-output">
+  {{ content }}
+</div>
+
+<div class="terminal-prompt">
+  <span class="prompt-user">n@nicolab</span>:<span class="prompt-path">~</span>$ <span class="prompt-command">ls -la ~/posts</span>
+</div>
+
+<div class="command-output">
+  <div class="ls-output">
+    <div class="ls-header">
+      <span class="ls-col-permissions">permissions</span>
+      <span class="ls-col-owner">owner</span>
+      <span class="ls-col-size">size</span>
+      <span class="ls-col-date">modified</span>
+      <span class="ls-col-name">name</span>
+    </div>
+    {% for post in site.posts %}
+    <a href="{{ post.url | relative_url }}" class="ls-row">
+      <span class="ls-col-permissions">-rw-r--r--</span>
+      <span class="ls-col-owner">n</span>
+      <span class="ls-col-size">{{ post.content | size }}B</span>
+      <span class="ls-col-date">{{ post.date | date: "%b %d %H:%M" }}</span>
+      <span class="ls-col-name">
+        <span class="file-icon">📄</span>
+        {{ post.title | slugify }}.md
+        {% if post.tags %}
+        <span class="file-tags">
+          {% for tag in post.tags %}
+          <span class="inline-tag">{{ tag }}</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="terminal-prompt">
+  <span class="prompt-user">n@nicolab</span>:<span class="prompt-path">~</span>$ <span class="prompt-command cursor-blink">_</span>
+</div>
