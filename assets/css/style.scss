@@ -32,11 +32,11 @@ body {
     repeating-linear-gradient(0deg, var(--grid-color) 0px, transparent 1px, transparent 2px, var(--grid-color) 3px),
     repeating-linear-gradient(90deg, var(--grid-color) 0px, transparent 1px, transparent 2px, var(--grid-color) 3px);
   background-size: 50px 50px;
-  color: var(--terminal-green);
+  color: #7fd896;
   font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace;
-  font-size: 16px;
-  line-height: 1.6;
-  text-shadow: 0 0 2px var(--terminal-green-glow);
+  font-size: 15px;
+  line-height: 1.7;
+  text-shadow: none;
 }
 
 /* Subtle scanline effect */
@@ -122,47 +122,53 @@ body::before {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Courier New', Courier, monospace;
-  color: var(--terminal-green);
-  margin: 30px 0 15px;
+  color: #7fd896;
+  margin: 32px 0 16px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 1.8;
+  letter-spacing: 1.5px;
+  line-height: 1.4;
   font-weight: bold;
 }
 
 h1 {
-  font-size: 28px;
-  border-bottom: 3px solid var(--terminal-green);
-  padding-bottom: 10px;
-  text-shadow: 0 0 3px var(--terminal-green-glow);
+  font-size: 24px;
+  border-bottom: 2px solid rgba(127, 216, 150, 0.4);
+  padding-bottom: 12px;
+  text-shadow: none;
+  margin-top: 0;
 }
 
 h2 {
-  font-size: 20px;
-  color: var(--link-cyan);
+  font-size: 18px;
+  color: #89d4db;
+  margin-top: 32px;
 }
 
 h2::before {
   content: "// ";
-  color: var(--terminal-green);
+  color: #7fd896;
+  opacity: 0.6;
 }
 
 h3 {
   font-size: 16px;
-  color: var(--code-amber);
+  color: #f0c38e;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  margin-top: 24px;
 }
 
 /* Links */
 a {
-  color: var(--link-cyan);
+  color: #89d4db;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: all 0.2s;
   position: relative;
 }
 
 a:hover {
-  color: var(--link-magenta);
-  text-shadow: 0 0 4px var(--link-magenta);
+  color: #d99cd9;
+  text-shadow: none;
 }
 
 a::after {
@@ -171,9 +177,9 @@ a::after {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
+  height: 1px;
   background: currentColor;
-  transition: width 0.3s;
+  transition: width 0.2s;
 }
 
 a:hover::after {
@@ -182,33 +188,58 @@ a:hover::after {
 
 /* Code blocks */
 pre, code {
-  font-family: 'VT323', monospace;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--code-amber);
-  box-shadow: inset 0 0 10px rgba(255, 176, 0, 0.2);
+  font-family: 'Courier New', Courier, monospace;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(240, 195, 142, 0.4);
+  box-shadow: none;
+}
+
+code {
+  padding: 2px 6px;
+  font-size: 14px;
+  color: #f0c38e;
+  border-radius: 3px;
 }
 
 pre {
-  padding: 20px;
+  padding: 14px 18px;
   overflow-x: auto;
   margin: 20px 0;
   position: relative;
-  border-left: 4px solid var(--code-amber);
+  border-left: 3px solid rgba(240, 195, 142, 0.5);
   white-space: pre;
-  font-size: 16px;
-  line-height: 1.2;
+  font-size: 13px;
+  line-height: 1.5;
   letter-spacing: 0;
+  color: rgba(127, 216, 150, 0.75);
+  border-radius: 4px;
 }
 
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Remove the [ CODE ] label - it gets cut off in Jekyll-generated blocks */
 pre::before {
-  content: "[ CODE BLOCK ]";
-  position: absolute;
-  top: -12px;
-  left: 10px;
-  background: var(--matrix-bg);
-  padding: 0 10px;
-  color: var(--code-amber);
-  font-size: 14px;
+  content: none;
+}
+
+/* Jekyll-generated code blocks */
+.highlighter-rouge {
+  margin: 20px 0;
+}
+
+.highlighter-rouge .highlight {
+  margin: 0;
+}
+
+.highlighter-rouge pre.highlight {
+  margin: 0;
+  border-radius: 4px;
 }
 
 /* ASCII art blocks - no decoration */
@@ -339,33 +370,44 @@ img {
 
 /* Blockquotes */
 blockquote {
-  border-left: 4px solid var(--link-magenta);
+  border-left: 3px solid rgba(217, 156, 217, 0.5);
   padding-left: 20px;
   margin: 20px 0;
-  color: var(--link-magenta);
+  color: rgba(217, 156, 217, 0.85);
   font-style: italic;
-  background: rgba(255, 0, 255, 0.05);
-  padding: 15px 20px;
+  background: rgba(217, 156, 217, 0.05);
+  padding: 14px 20px;
+  font-size: 15px;
+  line-height: 1.65;
 }
 
 blockquote::before {
   content: ">";
   margin-right: 10px;
+  opacity: 0.6;
 }
 
 /* Lists */
 ul, ol {
-  margin-left: 30px;
-  margin-bottom: 20px;
+  margin-left: 28px;
+  margin-bottom: 16px;
 }
 
 li {
-  margin: 10px 0;
+  margin: 8px 0;
+  line-height: 1.65;
 }
 
 ul li::marker {
   content: "▸ ";
-  color: var(--link-cyan);
+  color: #89d4db;
+}
+
+/* Horizontal Rules */
+hr {
+  border: none;
+  border-top: 1px solid rgba(127, 216, 150, 0.3);
+  margin: 36px 0;
 }
 
 /* Tables */
@@ -481,27 +523,35 @@ table tr:hover {
 /* Terminal Prompt */
 .terminal-prompt {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
-  margin: 25px 0 10px;
-  color: var(--terminal-green);
+  font-size: 14px;
+  margin: 24px 0 8px;
+  color: #7fd896;
   display: flex;
   align-items: center;
   gap: 5px;
+  line-height: 1.4;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 16px;
+  border: 1px solid rgba(127, 216, 150, 0.3);
+  border-left: 3px solid #89d4db;
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .prompt-user {
-  color: var(--link-cyan);
-  font-weight: bold;
+  color: #89d4db;
+  font-weight: normal;
 }
 
 .prompt-path {
-  color: var(--link-magenta);
-  font-weight: bold;
+  color: #d99cd9;
+  font-weight: normal;
 }
 
 .prompt-command {
-  color: var(--terminal-green);
+  color: #7fd896;
   margin-left: 5px;
+  opacity: 0.9;
 }
 
 .cursor-blink {
@@ -516,9 +566,20 @@ table tr:hover {
 /* Command Output */
 .command-output {
   margin-left: 0;
-  padding: 20px 0;
-  border-left: 3px solid rgba(0, 255, 65, 0.3);
+  padding: 16px 0;
+  border-left: 2px solid rgba(127, 216, 150, 0.3);
   padding-left: 20px;
+}
+
+.command-output pre {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.command-output code {
+  color: rgba(127, 216, 150, 0.75);
+  font-size: 13px;
 }
 
 /* TUI-Style LS Output */
@@ -652,71 +713,86 @@ table tr:hover {
 }
 
 .post-header h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
-  color: var(--terminal-green);
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #7fd896;
 }
 
 .post-body {
-  margin-top: 30px;
+  margin-top: 32px;
+  max-width: 720px;
 }
 
 .post-body p {
-  margin: 20px 0;
-  line-height: 1.8;
-  color: rgba(0, 255, 65, 0.9);
+  margin: 16px 0;
+  line-height: 1.65;
+  color: rgba(127, 216, 150, 0.85);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+}
+
+.post-body strong {
+  color: #7fd896;
+  font-weight: bold;
 }
 
 .post-body ul,
 .post-body ol {
-  margin: 20px 0;
-  padding-left: 30px;
+  margin: 16px 0;
+  padding-left: 28px;
+  line-height: 1.65;
 }
 
 .post-body li {
-  margin: 10px 0;
-  color: rgba(0, 255, 65, 0.9);
+  margin: 8px 0;
+  color: rgba(127, 216, 150, 0.8);
+  font-size: 15px;
+}
+
+.post-body li strong {
+  color: #89d4db;
 }
 
 /* Meta Information */
 .post-meta {
-  font-size: 16px;
-  margin: 10px 0;
+  font-size: 13px;
+  margin: 16px 0 24px;
   display: flex;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
   align-items: center;
+  opacity: 0.8;
 }
 
 .meta-date {
-  color: var(--link-cyan);
+  color: #89d4db;
   font-family: 'Courier New', Courier, monospace;
 }
 
 .meta-categories,
 .meta-tags {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .category,
 .tag {
-  background: rgba(255, 0, 255, 0.2);
-  color: var(--link-magenta);
-  padding: 3px 10px;
-  border: 1px solid var(--link-magenta);
+  background: rgba(217, 156, 217, 0.15);
+  color: #d99cd9;
+  padding: 3px 8px;
+  border: 1px solid rgba(217, 156, 217, 0.4);
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 12px;
   font-family: 'Courier New', Courier, monospace;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 
 .category:hover,
 .tag:hover {
   background: rgba(137, 212, 219, 0.15);
-  border-color: var(--link-cyan);
-  color: var(--link-cyan);
-  box-shadow: 0 0 5px var(--link-cyan);
+  border-color: #89d4db;
+  color: #89d4db;
+  box-shadow: none;
 }
 
 /* System Status TUI */

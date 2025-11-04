@@ -1,15 +1,14 @@
 # Site settings
-title: "[ TERMINAL CONSOLE ]"
-email: cyberspace@matrix.net
+title: "[ Nicolab ]"
+email: nah
 description: >-
-  A retro hacker blog transmitting knowledge through the digital void.
-  Lo-fi aesthetics, hi-fi content. Est. 2025.
+  Just babbling on the internet.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://nicolab.dev" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Social media
-twitter_username: your_username
-github_username:  your_username
+twitter_username: null
+github_username:  nlabrad
 
 # Build settings
 markdown: kramdown
