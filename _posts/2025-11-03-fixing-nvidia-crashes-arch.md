@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Arch, Wayland and NVIDIA. The one kernel flag let me live."
+title: "Arch, Wayland and NVIDIA. No more crashing"
 date: 2025-11-03 12:00:00 -0000
 categories: blogging
 tags: [arch, wayland, hyprland, nvidia, troubleshooting]
